@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winner TAM Dashboard</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Third-party CDNs -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS (Order matters) -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/dropdowns.css">
+  <link rel="stylesheet" href="assets/css/offcanvas.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar" role="banner">
+    <div class="topbar-left">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><i class="fa-solid fa-bars"></i></button>
+      <a href="#" class="brand"><i class="fa-solid fa-hexagon-check"></i><span>Winner TAM </span></a>
+      <div class="topbar-search"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search anything..." aria-label="Search"></div>
+    </div>
+    <div class="topbar-right">
+      <!-- Notifications -->
+      <div class="dropdown-wrap">
+        <button class="topbar-btn" data-dropdown="notifications" aria-label="Notifications"><i class="fa-solid fa-bell"></i><span class="badge-count">4</span></button>
+        <div class="dropdown-menu-custom" id="dropdown-notifications" role="menu">
+          <div class="dropdown-header-custom"><h6>Notifications</h6><a href="#">Mark all read</a></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:rgba(34,197,94,0.1);color:#16a34a;"><i class="fa-solid fa-user-plus"></i></div><div class="dropdown-item-content"><p>New user registered</p><span>2 minutes ago</span></div></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:rgba(13,148,136,0.1);color:#0d9488;"><i class="fa-solid fa-credit-card"></i></div><div class="dropdown-item-content"><p>Payment received - $2,450</p><span>15 minutes ago</span></div></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:rgba(239,68,68,0.1);color:#dc2626;"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="dropdown-item-content"><p>Server CPU usage at 92%</p><span>1 hour ago</span></div></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:rgba(245,158,11,0.1);color:#d97706;"><i class="fa-solid fa-file-lines"></i></div><div class="dropdown-item-content"><p>Monthly report is ready</p><span>3 hours ago</span></div></div>
+          <div class="dropdown-footer-custom"><a href="#">View All Notifications</a></div>
+        </div>
+      </div>
+      <!-- Messages -->
+      <div class="dropdown-wrap">
+        <button class="topbar-btn" data-dropdown="messages" aria-label="Messages"><i class="fa-solid fa-envelope"></i><span class="badge-count">3</span></button>
+        <div class="dropdown-menu-custom" id="dropdown-messages" role="menu">
+          <div class="dropdown-header-custom"><h6>Messages</h6><a href="#">View All</a></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:linear-gradient(135deg,#f472b6,#ec4899);color:#fff;font-size:12px;font-weight:700;">SJ</div><div class="dropdown-item-content"><p>Sarah Johnson</p><span>Hey, can you review the latest mockups?</span></div></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);color:#fff;font-size:12px;font-weight:700;">MC</div><div class="dropdown-item-content"><p>Mike Chen</p><span>The deployment is complete and live now.</span></div></div>
+          <div class="dropdown-item-custom"><div class="dropdown-item-icon" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;font-size:12px;font-weight:700;">ED</div><div class="dropdown-item-content"><p>Emily Davis</p><span>Meeting rescheduled to Thursday 3PM.</span></div></div>
+          <div class="dropdown-footer-custom"><a href="#">View All Messages</a></div>
+        </div>
+      </div>
+      <!-- Language -->
+      <div class="dropdown-wrap">
+        <button class="topbar-btn" data-dropdown="language" aria-label="Language"><i class="fa-solid fa-globe"></i></button>
+        <div class="dropdown-menu-custom lang-dropdown" id="dropdown-language" role="menu">
+          <div class="dropdown-header-custom"><h6>Language</h6></div>
+          <div class="lang-item active" data-lang="en"><i class="fa-solid fa-check"></i> English</div>
+          <div class="lang-item" data-lang="es"><i></i> Spanish</div>
+          <div class="lang-item" data-lang="fr"><i></i> French</div>
+          <div class="lang-item" data-lang="de"><i></i> German</div>
+        </div>
+      </div>
+      <!-- Dark Mode & Fullscreen -->
+      <button class="topbar-btn" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="topbar-btn" id="fullscreenToggle" aria-label="Toggle fullscreen"><i class="fa-solid fa-expand"></i></button>
+      <!-- Profile -->
+      <div class="dropdown-wrap">
+        <button class="profile-btn" data-dropdown="profile" aria-label="Profile menu"><div class="profile-avatar">M</div><div class="profile-info"><strong>Minhaj</strong><small>Admin</small></div></button>
+        <div class="dropdown-menu-custom profile-dropdown" id="dropdown-profile" role="menu">
+          <div class="profile-summary"><div class="profile-avatar">JD</div><div class="profile-summary-info"><strong>Minhaj</strong><span>minhaje@winner.io</span></div></div>
+          <div class="dropdown-item-link"><i class="fa-solid fa-user"></i> My Profile</div>
+          <div class="dropdown-item-link"><i class="fa-solid fa-gear"></i> Account Settings</div>
+          <div class="dropdown-item-link"><i class="fa-solid fa-life-ring"></i> Help Center</div>
+          <div class="dropdown-divider-custom"></div>
+          <div class="dropdown-item-link" style="color:var(--danger);"><i class="fa-solid fa-right-from-bracket" style="color:var(--danger);"></i> Logout</div>
+        </div>
+      </div>
+      <!-- Settings -->
+      <button class="topbar-btn" id="settingsToggle" aria-label="Open settings panel"><i class="fa-solid fa-sliders"></i></button>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Main</div>
+      <div class="sidebar-link active" data-page="dashboard"><i class="fa-solid fa-house"></i><span class="link-text">Dashboard</span></div>
+      <div class="sidebar-link" data-page="analytics"><i class="fa-solid fa-chart-line"></i><span class="link-text">Analytics</span></div>
+      <div class="sidebar-link" data-sidebar-dropdown="components"><i class="fa-solid fa-cube"></i><span class="link-text">Components</span><i class="fa-solid fa-chevron-right dropdown-arrow"></i></div>
+      <div class="sidebar-sub" id="sub-components">
+        <div class="sidebar-sub-link" data-page="buttons">Buttons</div>
+        <div class="sidebar-sub-link" data-page="cards">Cards</div>
+        <div class="sidebar-sub-link active" data-page="forms">Forms</div>
+        <div class="sidebar-sub-link" data-page="tables">Tables</div>
+      </div>
+      <div class="sidebar-link" data-page="users"><i class="fa-solid fa-users"></i><span class="link-text">Users</span></div>
+      <div class="sidebar-label">Extras</div>
+      <div class="sidebar-link" data-page="calendar"><i class="fa-solid fa-calendar-days"></i><span class="link-text">Calendar</span></div>
+      <div class="sidebar-link" data-page="settings"><i class="fa-solid fa-gear"></i><span class="link-text">Settings</span></div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-user-avatar">JD</div><div class="sidebar-user-info"><strong>Minhaj </strong><span>Admin</span></div></div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-wrap" id="mainWrap">
+    <main class="main-content" role="main">
+      <!-- Welcome -->
+      <section class="welcome-banner animate-in" style="opacity:0;"><h2>Welcome back, John</h2><p>Here's what's happening with your projects today.</p></section>
+      <!-- Stats -->
+      <section class="row g-3 mb-4">
+        <div class="col-xl-3 col-md-6 animate-in" style="opacity:0;">
+          <div class="stat-card" style="--card-accent:#0d9488;"><div class="stat-card-header"><div class="stat-card-icon" style="background:rgba(13,148,136,0.1);color:#0d9488;"><i class="fa-solid fa-users"></i></div><span class="stat-card-badge" style="background:rgba(34,197,94,0.1);color:#16a34a;"><i class="fa-solid fa-arrow-up" style="font-size:9px;"></i> 12.5%</span></div><div class="stat-card-value">24,580</div><div class="stat-card-label">Total Users</div></div>
+        </div>
+        <div class="col-xl-3 col-md-6 animate-in" style="opacity:0;">
+          <div class="stat-card" style="--card-accent:#06b6d4;"><div class="stat-card-header"><div class="stat-card-icon" style="background:rgba(6,182,212,0.1);color:#06b6d4;"><i class="fa-solid fa-dollar-sign"></i></div><span class="stat-card-badge" style="background:rgba(34,197,94,0.1);color:#16a34a;"><i class="fa-solid fa-arrow-up" style="font-size:9px;"></i> 8.2%</span></div><div class="stat-card-value">$89,240</div><div class="stat-card-label">Revenue</div></div>
+        </div>
+        <div class="col-xl-3 col-md-6 animate-in" style="opacity:0;">
+          <div class="stat-card" style="--card-accent:#f59e0b;"><div class="stat-card-header"><div class="stat-card-icon" style="background:rgba(245,158,11,0.1);color:#d97706;"><i class="fa-solid fa-cart-shopping"></i></div><span class="stat-card-badge" style="background:rgba(239,68,68,0.1);color:#dc2626;"><i class="fa-solid fa-arrow-down" style="font-size:9px;"></i> 3.1%</span></div><div class="stat-card-value">1,245</div><div class="stat-card-label">Orders</div></div>
+        </div>
+        <div class="col-xl-3 col-md-6 animate-in" style="opacity:0;">
+          <div class="stat-card" style="--card-accent:#8b5cf6;"><div class="stat-card-header"><div class="stat-card-icon" style="background:rgba(139,92,246,0.1);color:#7c3aed;"><i class="fa-solid fa-chart-pie"></i></div><span class="stat-card-badge" style="background:rgba(34,197,94,0.1);color:#16a34a;"><i class="fa-solid fa-arrow-up" style="font-size:9px;"></i> 18.7%</span></div><div class="stat-card-value">42.6%</div><div class="stat-card-label">Growth Rate</div></div>
+        </div>
+      </section>
+      <!-- Chart + Progress -->
+      <section class="row g-3 mb-4">
+        <div class="col-lg-8 animate-in" style="opacity:0;">
+          <div class="content-card"><div class="content-card-header"><h5>Revenue Overview</h5><div style="display:flex;gap:6px;"><button class="font-size-btn active" data-chart-range="weekly">Weekly</button><button class="font-size-btn" data-chart-range="monthly">Monthly</button></div></div><div class="content-card-body"><div class="bar-chart" id="barChart"></div></div></div>
+        </div>
+        <div class="col-lg-4 animate-in" style="opacity:0;">
+          <div class="content-card" style="height:100%;"><div class="content-card-header"><h5>Project Progress</h5></div><div class="content-card-body">
+            <div class="progress-item"><div class="progress-item-header"><span>Website Redesign</span><strong>87%</strong></div><div class="progress-bar-custom"><div class="progress-fill" style="width:0%;" data-width="87%"></div></div></div>
+            <div class="progress-item"><div class="progress-item-header"><span>Mobile App</span><strong>64%</strong></div><div class="progress-bar-custom"><div class="progress-fill" style="width:0%;" data-width="64%"></div></div></div>
+            <div class="progress-item"><div class="progress-item-header"><span>API Integration</span><strong>45%</strong></div><div class="progress-bar-custom"><div class="progress-fill" style="width:0%;" data-width="45%"></div></div></div>
+            <div class="progress-item"><div class="progress-item-header"><span>Dashboard v2</span><strong>92%</strong></div><div class="progress-bar-custom"><div class="progress-fill" style="width:0%;" data-width="92%"></div></div></div>
+          </div></div>
+        </div>
+      </section>
+      <!-- Table + Team -->
+      <section class="row g-3 mb-4">
+        <div class="col-lg-8 animate-in" style="opacity:0;">
+          <div class="content-card"><div class="content-card-header"><h5>Recent Orders</h5><a href="#" style="font-size:13px;color:var(--accent);font-weight:600;">View All</a></div><div class="content-card-body" style="padding:0;"><div style="overflow-x:auto;">
+            <table class="data-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+              <tr><td style="font-weight:600;">#ORD-7291</td><td>Alice Walker</td><td>Pro Plan</td><td style="font-weight:600;">$299.00</td><td><span class="status-badge success">Completed</span></td></tr>
+              <tr><td style="font-weight:600;">#ORD-7290</td><td>Mark Thompson</td><td>Starter Kit</td><td style="font-weight:600;">$49.00</td><td><span class="status-badge pending">Pending</span></td></tr>
+              <tr><td style="font-weight:600;">#ORD-7289</td><td>Sara Lin</td><td>Enterprise</td><td style="font-weight:600;">$1,200.00</td><td><span class="status-badge success">Completed</span></td></tr>
+              <tr><td style="font-weight:600;">#ORD-7288</td><td>James Ortiz</td><td>Pro Plan</td><td style="font-weight:600;">$299.00</td><td><span class="status-badge failed">Failed</span></td></tr>
+            </tbody></table>
+          </div></div></div>
+        </div>
+        <div class="col-lg-4 animate-in" style="opacity:0;">
+          <div class="content-card" style="height:100%;"><div class="content-card-header"><h5>Team Members</h5></div><div class="content-card-body">
+            <div class="team-member"><div class="team-avatar" style="background:linear-gradient(135deg,#f472b6,#ec4899);">SJ</div><div class="team-info"><strong>Sarah Johnson</strong><span>UI Designer</span></div><div class="online-dot"></div></div>
+            <div class="team-member"><div class="team-avatar" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);">MC</div><div class="team-info"><strong>Mike Chen</strong><span>Backend Dev</span></div><div class="online-dot"></div></div>
+            <div class="team-member"><div class="team-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);">ED</div><div class="team-info"><strong>Emily Davis</strong><span>Project Manager</span></div><div class="offline-dot"></div></div>
+          </div></div>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer"><span>2026 Winner TAM Dashboard. Crafted with purpose.</span><span>v1.4.0</span></footer>
+  </div>
+
+  <!-- OFFCANVAS SETTINGS -->
+  <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+  <aside class="offcanvas-panel" id="offcanvasPanel" role="complementary" aria-label="Settings panel">
+    <div class="offcanvas-header"><h5>Settings</h5><button class="offcanvas-close" id="offcanvasClose" aria-label="Close settings"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="offcanvas-body">
+      <div class="settings-section"><div class="settings-section-title">Appearance</div>
+        <div class="settings-row"><div class="settings-row-label"><i class="fa-solid fa-moon"></i><span>Dark Mode</span></div><div class="toggle-switch" id="offcanvasDarkMode" role="switch" aria-label="Dark mode"></div></div>
+        <div style="margin-top:14px;"><div class="settings-row-label" style="margin-bottom:10px;"><i class="fa-solid fa-palette"></i><span>Accent Color</span></div>
+          <div class="color-swatches">
+            <div class="color-swatch active" style="background:#0d9488;" data-color="teal"></div>
+            <div class="color-swatch" style="background:#3b82f6;" data-color="blue"></div>
+            <div class="color-swatch" style="background:#8b5cf6;" data-color="violet"></div>
+            <div class="color-swatch" style="background:#ec4899;" data-color="pink"></div>
+            <div class="color-swatch" style="background:#f59e0b;" data-color="amber"></div>
+            <div class="color-swatch" style="background:#ef4444;" data-color="red"></div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-section"><div class="settings-section-title">Notifications</div>
+        <div class="settings-row"><div class="settings-row-label"><i class="fa-solid fa-envelope"></i><span>Email Notifications</span></div><div class="toggle-switch active" role="switch" aria-label="Email"></div></div>
+        <div class="settings-row"><div class="settings-row-label"><i class="fa-solid fa-bell"></i><span>Push Notifications</span></div><div class="toggle-switch active" role="switch" aria-label="Push"></div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Custom JS (Order matters) -->
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/fullscreen.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

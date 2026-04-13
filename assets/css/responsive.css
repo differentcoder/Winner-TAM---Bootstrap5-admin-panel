@@ -1,0 +1,17 @@
+@media (max-width: 991.98px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-wrap { margin-left: 0; }
+  .topbar-search { display: none; }
+  .profile-info { display: none; }
+}
+
+@media (max-width: 767.98px) {
+  .main-content { padding: 16px; }
+  .welcome-banner { padding: 20px; }
+  .welcome-banner h2 { font-size: 20px; }
+  .stat-card-value { font-size: 22px; }
+  .dropdown-menu-custom { position: fixed; top: var(--topbar-height); left: 8px; right: 8px; min-width: auto; }
+  .offcanvas-panel { width: 100%; }
+  .main-footer { flex-direction: column; gap: 4px; text-align: center; }
+}
